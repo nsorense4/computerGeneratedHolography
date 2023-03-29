@@ -20,7 +20,7 @@ sys.path.append('C:/Users/srv_plank/Documents/customPyDrivers') #planck
 dirCurr = 'C:/Users/srv_plank/Documents/computerGeneratedHolography/' #planck
 
 from plot_custom import plot_custom
-from gaussianModes import LGModeArray
+from gaussianModes import LGModeArray, HGModeArray
 
 #%%
 def fft2d(inp):
@@ -249,5 +249,30 @@ def exportPlotPhase(field, dirCurr, fileName):
 # exportPlotPhase(nearFieldFldFinal, dirCurr + 'figures/', 'lm11Phase.bmp')
 
 
+# # %% Example: Calculate the goaled phase mask for a field HG
+# farFieldField = HGModeArray(1,1, N=200, M=200, w=15)
+# nearFieldFld, farFieldFld, nearFieldFldFinal, farFieldFldFinal, err = (
+#     CGHGaussianInput(farFieldField, tol = 0.001, maxIter = 500, 
+#                       goal = 'amp+pha', r = 0.25, adh = 0.9, nearGaussWidth= 0.2,
+#                       phaGuess = 'flat'))
+# nrows = 2
+# ncols = 2
+
+# fig, ax = plt.subplots(nrows=nrows, ncols=ncols,figsize=(9.8, 10*nrows/ncols))
+# plt.setp(ax, xticks=[], xticklabels = [], yticks = [], yticklabels = [], aspect = 'equal')
+# fig.subplots_adjust(wspace=0.1, hspace=0.1)
+
+# # plot black backgrounds
+# for i in range(nrows):
+#     for j in range(ncols):
+#         ax[i,j].imshow(np.abs(farFieldField)*0, cmap = 'hot')
+
+# # plot 
+# plotIntAndPhase(nearFieldFld, ax[0,0])
+# plotIntAndPhase(farFieldFld, ax[0,1])
+# ax[1,0].imshow(np.angle(nearFieldFldFinal), cmap = 'hsv')
+# plotIntAndPhase(farFieldFldFinal, ax[1,1])
+
+# # exportPlotPhase(nearFieldFldFinal, dirCurr + 'figures/', 'lm11Phase.bmp')
 
 
