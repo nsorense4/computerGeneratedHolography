@@ -13,11 +13,11 @@ import sys
 from datetime import datetime
 from PIL import Image
 
-sys.path.append("C:/Users/nicho/Documents/gitProjects/customPyDrivers")  # nicho
-# sys.path.append('C:/Users/srv_plank/Documents/customPyDrivers') #planck
+# sys.path.append("C:/Users/nicho/Documents/gitProjects/customPyDrivers")  # nicho
+sys.path.append('C:/Users/srv_plank/Documents/customPyDrivers') #planck
 
-dirCurr = "C:/Users/nicho/Documents/gitProjects/lab-analysis-software/lundeen-lab/hologram/CGH/"  # nicho
-# dirCurr = 'L:/spaceplate/threeLensSpaceplate' #planck
+# dirCurr = "C:/Users/nicho/Documents/gitProjects/lab-analysis-software/lundeen-lab/hologram/CGH/"  # nicho
+dirCurr = 'C:/Users/srv_plank/Documents/computerGeneratedHolography/' #planck
 
 from plot_custom import plot_custom
 from gaussianModes import LGModeArray, HGModeArray
